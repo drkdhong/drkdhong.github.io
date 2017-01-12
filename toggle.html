@@ -1,0 +1,26 @@
+<!DOCTYPE html><!-- toggle.html -->
+<html><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>jQM Project #1</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head><body>
+<div data-role="page">
+  <header data-role="header">
+    <h1>리스트 헤더</h1>
+  </header>
+  <section role="main" class="ui-content">
+    <table  data-role="table" data-mode="columntoggle" class="ui-responsive table-stroke">
+      <thead>
+        <tr><th>도시명</th><th data-priority="1">면적</th><th data-priority="2">인구</th>
+            <th data-priority="3">위치</th></tr></thead>
+      <tbody>
+        <tr><th>서울</th><td>605.25</td><td>10,297,138</td><td>37.566673,126.978417</td></tr>
+        <tr><th>부산</th><td>765.82</td><td>3,559,780</td><td>35.179783,129.075000</td></tr>
+        <tr><th>대구</th><td>883.54</td><td>2,513,970</td><td>35.871437,128.601443</td></tr>
+        <tr><th>대전</th><td>539.84</td><td>1,535,191</td><td>36.350469,127.384826</td></tr>
+      </tbody></table>
+  </section>
+  <footer data-role="footer">
+    <h4>리스트 푸터</h4></footer>
+</div></body></html>
