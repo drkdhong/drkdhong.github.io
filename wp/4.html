@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) & !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>[Rabbitmq] 1. 초보를 위한 RabbitMQ 후딱 설치하고 설정하기 | 아브의 꿀오분</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+<link rel="pingback" href="http://abh0518.net/tok/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="http://abh0518.net/tok/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='dns-prefetch' href='//s.w.org'>
+<link rel="alternate" type="application/rss+xml" title="아브의 꿀오분 &raquo; Feed" href="http://abh0518.net/tok/?feed=rss2" />
+<link rel="alternate" type="application/rss+xml" title="아브의 꿀오분 &raquo; Comments Feed" href="http://abh0518.net/tok/?feed=comments-rss2" />
+<link rel="alternate" type="application/rss+xml" title="아브의 꿀오분 &raquo; [Rabbitmq] 1. 초보를 위한 RabbitMQ 후딱 설치하고 설정하기 Comments Feed" href="http://abh0518.net/tok/?feed=rss2&#038;p=384" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/abh0518.net\/tok\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.6"}};
+			!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='kento-like-post-style-css'  href='style2.css' type='text/css' media='all' />
+<link rel='stylesheet' id='kento-like-post-date-style-css'  href='style3.css' type='text/css' media='all' />
+<script type='text/javascript' src='http://abh0518.net/tok/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://abh0518.net/tok/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var kento_pvc_ajax = {"kento_pvc_ajaxurl":"http:\/\/abh0518.net\/tok\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://abh0518.net/tok/wp-content/plugins/kento-post-view-counter/js/kento-pvc.js?ver=4.6'></script>
+<script type='text/javascript' src='http://abh0518.net/tok/wp-content/plugins/kento-post-view-counter/js/google-chart-jsapi.js?ver=4.6'></script>
+<link rel='https://api.w.org/' href='http://abh0518.net/tok/?rest_route=/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://abh0518.net/tok/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://abh0518.net/tok/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='지름의 원칙' href='http://abh0518.net/tok/?p=379' />
+<link rel='next' title='[RabbitMQ] 2. 초보를 위한 RabbitMQ 서비스용 계정 및 Virtual Host 설정하기' href='http://abh0518.net/tok/?p=397' />
+<meta name="generator" content="WordPress 4.6" />
+<link rel="canonical" href="http://abh0518.net/tok/?p=384" />
+<link rel='shortlink' href='http://abh0518.net/tok/?p=384' />
+<link rel="alternate" type="application/json+oembed" href="http://abh0518.net/tok/?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=http%3A%2F%2Fabh0518.net%2Ftok%2F%3Fp%3D384" />
+<link rel="alternate" type="text/xml+oembed" href="http://abh0518.net/tok/?rest_route=%2Foembed%2F1.0%2Fembed&#038;url=http%3A%2F%2Fabh0518.net%2Ftok%2F%3Fp%3D384&#038;format=xml" />
+</head>
+
+<body class="single single-post postid-384 single-format-standard single-author singular two-column right-sidebar">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="http://abh0518.net/tok/" rel="home">아브의 꿀오분</a></span></h1>
+				<h2 id="site-description">나른한 오후, 꿀맛 같은 오분간의 낮잠</h2>
+			</hgroup>
+
+						<a href="http://abh0518.net/tok/">
+									<img src="http://abh0518.net/tok/wp-content/themes/twentyeleven/images/headers/wheel.jpg" width="1000" height="288" alt="아브의 꿀오분" />
+							</a>
+			
+								<form method="get" id="searchform" action="http://abh0518.net/tok/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search" />
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="#content">Skip to primary content</a></div>
+												<div class="menu"><ul><li ><a href="http://abh0518.net/tok/">Home</a></li><li class="page_item page-item-66"><a href="http://abh0518.net/tok/?page_id=66">About</a></li></ul></div>
+			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					<nav id="nav-single">
+						<h3 class="assistive-text">Post navigation</h3>
+						<span class="nav-previous"><a href="http://abh0518.net/tok/?p=379" rel="prev"><span class="meta-nav">&larr;</span> Previous</a></span>
+						<span class="nav-next"><a href="http://abh0518.net/tok/?p=397" rel="next">Next <span class="meta-nav">&rarr;</span></a></span>
+					</nav><!-- #nav-single -->
+
+					
+<article id="post-384" class="post-384 post type-post status-publish format-standard hentry category-it">
+	<header class="entry-header">
+		<h1 class="entry-title">[Rabbitmq] 1. 초보를 위한 RabbitMQ 후딱 설치하고 설정하기</h1>
+
+				<div class="entry-meta">
+			<span class="sep">Posted on </span><a href="http://abh0518.net/tok/?p=384" title="6:02 pm" rel="bookmark"><time class="entry-date" datetime="2014-10-06T18:02:05+00:00">October 6, 2014</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="http://abh0518.net/tok/?author=1" title="View all posts by abh0518" rel="author">abh0518</a></span></span>		</div><!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>회사의 캐시카우 서비스의 푸시 파트를 개선해야할 일이 생겼다. 레거시 코드가 너무 old한게 가장 큰 문제인데 그 중 눈에 띄는 것은 push message queue를 RDBMS로 구현해 놓은 부분이다. DB 튜닝 할때도 message pub/sub 부분에서 DB에 부하가 종종 크게 나오는 것으로 봐서는 이 부분 개선은 필수 인거 같다. 결국 mq 서버를 사용하는 것으로 결론이 났는데 무엇을 쓸까 수소문 하다가 RabbitMQ를 사용하기로 결정했다.</p>
+<p>CloudFoundry의 Nats와 Apache ActiveMQ도 후보 중 하나였으나 난 왜 RabbitMQ를 선택했을까? 그냥 주변에서 많이 써서&#8230;.<br />
+(노..농담이고 Nats는 설치도 간편하고 사용성도 좋긴 한데 클러스터링/미러링 이 안되는 가장 큰 문제점이 있다. ActiveMQ는 그냥 주변에서 RabbitMQ를 더 추천해서 써보지도 않고 팽했다.)</p>
+<p>여튼  RabbitMQ는 처음 다루다 보니 일단 사이트(<a href="https://www.rabbitmq.com/">https://www.rabbitmq.com/</a>) 방문해서 닥치고 매뉴얼을 읽고 Start!</p>
+<h2>1.  설치 (ubuntu 기반)</h2>
+<p>좀 매니악한 개발자 코스프레좀 해볼까 하고 소스 부터 설치하려했다가 erlang부터 설치해야하는 귀찮니즘의 압박으로 결국 apt-get 느님의 도움을 받기로 함<br />
+참고 페이지 : <a href="https://www.rabbitmq.com/download.html">https://www.rabbitmq.com/download.html</a></p>
+<pre>$&gt;sudo apt-get install rabbitmq-server</pre>
+<h2>2. Management Plugin 활성화</h2>
+<p>설치가 완료 되면 terminal이 익숙치 않은 초보(?)를 위해 제공하는 Management Plugin도 활성화 시켜 놓자. 플러그인 설치 후에는 RabbitMQ를 restart 해주어야 변경 사항이 반영된다.<br />
+참고 페이지 : <a href="https://www.rabbitmq.com/management.html">https://www.rabbitmq.com/management.html</a></p>
+<pre>$&gt;sudo rabbitmq-plugins enable rabbitmq_management
+$&gt;sudo service rabbitmq-server restart</pre>
+<h2>3. 관리자 계정  추가</h2>
+<p>처음 설치하면 guest 계정을 제공하기는 하는데 안타깝게도 localhost에서만 접속을 허용한다. 즉, 설치하자마자 Management Plugin의 유려한 UI로 막막 설정해보고 싶었지만 로그인 조차 안되는 난감함이 기다린다. 그러니 일단 RabbitMQ를 설치하고 난 뒤 바로 Terminal에서 관리자 계정을 설정해주도록 하자. 아래 예제에서는 관리자 계정을 rabbitmq로 설정했다.</p>
+<pre>$&gt;sudo rabbitmqctl add_user rabbitmq password
+$&gt;sudo rabbitmqctl set_user_tags rabbitmq administrator</pre>
+<h2>4. Management Plugin 접속</h2>
+<p>유저 설정까지 끝냈으면 Management Plugin으로 RabbitMQ를 관리해보도록 하자.<br />
+웹브라우저로 http://serverip:15672/  에 접속하면 아래와 같은 화면이 나온다.</p>
+<p><img class="aligncenter size-full wp-image-385" src="http://abh0518.net/tok/wp-content/uploads/2014/10/RabbitMQ-Management-2014-10-06-17-59-02.jpg" alt="RabbitMQ Management 2014-10-06 17-59-02" width="321" height="197" /></p>
+<p>이제 3번에서 설정한 관리자 id로 접속을 해보자. 로그인에 성공하고 아래와 같은 화면이 나오면 성공!</p>
+<p><a href="http://abh0518.net/tok/wp-content/uploads/2014/10/RabbitMQ-Management-2014-10-06-18-00-51.jpg"><img class="aligncenter size-full wp-image-386" src="http://abh0518.net/tok/wp-content/uploads/2014/10/RabbitMQ-Management-2014-10-06-18-00-51.jpg" alt="RabbitMQ Management 2014-10-06 18-00-51" width="1047" height="718" /></a></p>
+<p>축하합니다! 기본적인 RabbitMQ의 설치 및 기본 설정을 끝내셨습니다!</p>
+<p>다음 시간엔 서비스용 계정 및 Virtual host 설정 하는 법을 진행해볼까 합니다.</p>
+<div id='kento-pvc'><span class='kento-pvc-total'> 18210 Total Views </span> <span class='kento-pvc-today'>12 Views Today </span></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="http://abh0518.net/tok/?cat=25" rel="category">IT기타</a> by <a href="http://abh0518.net/tok/?author=1">abh0518</a>. Bookmark the <a href="http://abh0518.net/tok/?p=384" title="Permalink to [Rabbitmq] 1. 초보를 위한 RabbitMQ 후딱 설치하고 설정하기" rel="bookmark">permalink</a>.		
+			</footer><!-- .entry-meta -->
+</article><!-- #post-384 -->
+
+						<div id="comments">
+	
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/tok/?p=384#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="http://abh0518.net/tok/wp-login.php?redirect_to=http%3A%2F%2Fabh0518.net%2Ftok%2F%3Fp%3D384">logged in</a> to post a comment.</p>		</div><!-- #respond -->
+		
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type='text/javascript' src='http://abh0518.net/tok/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://abh0518.net/tok/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
+<script type='text/javascript'>
+jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+</script>
+<script type='text/javascript' src='http://abh0518.net/tok/wp-includes/js/comment-reply.min.js?ver=4.6'></script>
+<script type='text/javascript' src='http://abh0518.net/tok/wp-includes/js/wp-embed.min.js?ver=4.6'></script>
+
+</body>
+</html>
