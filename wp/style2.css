@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+
+#kento-pvc{
+	
+	}
+#kento-pvc .kento-pvc-total {
+  background: url("total.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  padding-left: 35px;
+}
+
+#kento-pvc .kento-pvc-today  {
+  background: url("today.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  padding-left: 35px;
+}
+
+#kento-pvc-single .kento-pvc-total, #kento-pvc-loop .kento-pvc-total  {
+  background: url("total.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  padding-left: 35px;
+}
+
+#kento-pvc-single .kento-pvc-today, #kento-pvc-loop .kento-pvc-today {
+  background: url("today.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  padding-left: 35px;
+}
+
+
+
+
+.kento-pvc-top-post {
+  border-collapse: collapse;
+  width:100%;
+}
+
+
+.kento-pvc-top-post tr{}
+
+.kento-pvc-top-post td {
+  padding: 5px;
+  text-align: center;
+}
+
+.kento-pvc-top-post .post-title {
+  padding-left: 15px;
+  text-align: left;
+}
+
+.kento-pvc-top-post .post-title a{
+	text-decoration:none;
+}
+
+.kento-pvc-by-date-submit, .kpvc-date-referer-submit {
+  background-color: #DDDDDD;
+  border-radius: 5px;
+  box-shadow: 0 2px 1px -1px #000000;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 5px;
+  text-align: center;
+  width: 100px;
+  cursor:pointer;
+}
+
+.kento-pvc-by-date-submit:hover, .kpvc-date-referer-submit:hover {
+
+  box-shadow: 0 1px 1px -1px #000000;
+
+
+}
+#kento-pvc-by-date-result .no-result, #kento-pvc-top-referer .no-result{
+  color: #FF0000;
+}
+
+.kento-pvc-by-viewed, .kento-pvc-by-date, .kento-pvc-by-city, .kento-pvc-by-city-post, .kento-pvc-feedbck, .kento-pvc-geo {
+  background-color: #29D883;
+  border-top: 4px solid #117042;
+  display: inline-block;
+  height: auto;
+  margin-left: 10px;
+  margin-top: 20px;
+  overflow: hidden;
+  padding: 5px;
+  vertical-align: top;
+  width: 46%;
+}
+
+.kento-pvc-by-city-post {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.kento-pvc-by-city-details {
+  cursor: pointer;
+  float: right;
+  font-size: 12px;
+  padding: 3px;
+}
+.kento-pvc-by-city-details:hover {
+	color:#599100;
+
+}
