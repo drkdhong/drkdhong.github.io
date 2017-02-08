@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>  <!--  jqAttrFunction.html  -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery attr() 함수 실습</title>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script></head>
+<body>
+<button>Value변경</button><br/>
+<input class="class1" type="text" value="변학도" style="width:50px;">
+<input class="class1" type="text" style="width:20%;">
+<input class="class1" type="text" style="width:20%;"> <input class="class1" type="password" style="width:20%;">
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $(".class1").attr("value", function(i) {      //script 부분
+      var namex = 'Unknown';
+      switch(i) {
+      case 0 : namex = '홍길동'; break;
+      case 1 : namex = '이몽룡'; break;
+      case 2 : namex = '손오공'; break;
+      }
+      return namex;
+    });
+  });
+});
+</script></body></html>
