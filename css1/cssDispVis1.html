@@ -1,0 +1,23 @@
+<!doctype  html>  <!--    cssDispVis1.html    -->        
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+  .ordinary {border:1px solid black;}
+  .dispinline {  display:inline; border:1px solid black;}    .dispbox { display:box; border:1px solid black;}
+  .dispnone {  display:none; } .vishidden {  visibility:hidden; }
+</style>
+<title>CSS  display/visibility 실습</title></head>
+<body><section><h3>목록</h3>
+<p class="ordinary">(블록 엘리먼트 p)동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세</p>
+<p class="ordinary">(블록 엘리먼트p)무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세</p>
+<p class="dispinline">(inline으로변경)동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세</p>
+<p class="dispinline">(inline으로변경)무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세</p>
+<ul>
+  <li>로그인</li><li>회원가입</li><li>사이트맵</li></ul>
+<ul>
+  <li class="dispinline">로그인|</li><li class="dispinline">회원가입|</li><li class="dispinline">사이트맵</li></ul>
+<h4>회원가입 display=none</h4><ul>
+  <li class="dispinline">로그인|</li><li class="dispnone">회원가입|</li><li class="dispinline">사이트맵</li></ul>
+<h4>회원가입 display=hidden</h4><ul>
+  <li class="dispinline">로그인|</li><li class="dispinline vishidden">회원가입|</li><li class="dispinline">사이트맵</li></ul>
+</section> </body></html>
+
