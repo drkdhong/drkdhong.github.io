@@ -2,6 +2,6 @@
 * { box-sizing:border-box; padding:0; margin:0; }
 #section0 {  width:240px; height:120px; 
       border:solid 1px lightgray; border-radius:1em; }
-#loginBtn {  display:online-block; vertical-align:top; 
+#loginBtn {  display:inline-block; vertical-align:top; 
       border-radius:0.1em;  color:blue; }
 
