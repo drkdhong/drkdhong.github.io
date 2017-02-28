@@ -1,0 +1,24 @@
+<!doctype html><!--     jqMethod1.html.html    --> 
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>jQuery get/set 메소드 테스트</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#button1").click(function(){
+      $("#displayArea").text($("#korea").text());                 //get & set
+    });
+    $("#button2").click(function(){
+        $("#displayArea").text($("#usa").text());                   //get & set
+    });
+  });
+</script>
+</head>
+<body>
+  <p id="korea">대한민국 서울</p>
+  <p id="usa">미국 워싱턴</p>
+  <button id="button1">한국</button>
+  <button id="button2">미국</button>
+  <br/><br/>
+  <div id="displayArea"></div>
+</body></html>
