@@ -1,39 +1,57 @@
-<!DOCTYPE html>  <!--  userLogin1.html -->
+<!doctype  html>  <!--    userLogin.html    -->        
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
-</script>
-<![endif]-->
 <style>
-  body {font-family: Verdana, sans-serif; font-size:0.8em;}
-  header, nav, section, article, aside, footer
-  {border:1px solid gray; margin:5px; padding:8px;}
-  nav ul {margin:0; padding:0;}
-  nav ul li {display:inline; margin:5px;}
-  #id_form {width:100px; height:14px; color:red;}
+* {padding:0; margin:0; }
+body {font-family: Verdana, sans-serif; font-size:0.8em}
+header,nav,section,article,aside,footer
+{border:1px solid gray; margin:5px; padding:8px}
+nav ul{margin:0; padding:0;}
+nav ul li{display:inline; margin:5px}
+section{height:400px;}
+.id_form{width:50px;}
+.label_form{display: inline-block; width:60px; height:14px; color:red;padding:5px;}
+#loginArea {width:230px; height:100px; margin:10px; padding:10px;
+          border:solid 1px lightgray; border-radius:1em; }
+ul.level_1 > li {list-style:none; display:inline-block;vertical-align:bottom;}
+ul.level_1 > li > ul {list-style:none; }
+.level_2 li { padding-top:5px; }
+.level_2 span { display:inline-block; width:70px; }
+.level_2 input { width:100px; }
+#loginBtn button { margin-left:5px; height:42px;}
+.fset {padding:10px; }
 </style>
-<title>로그인  실습</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#login").click(function(){
+    $("#displayArea").html($("#loginArea").html());//get&set
+  });
+  $("#loginArea").hide(function(){});
+});</script>
+<title>로그인 실습</title>
 </head>
 <body>
-  <header>
-    <h2>실습을 환영합니다</h2> </header>
-  <nav>
-    <ul>
-      <li><a href="www.dju.ac.kr">로그인</a></li>
-      <li><a href="hive.dju.ac.kr">조회</a></li>
-    </ul></nav>
-  <section>
-    <form action="http://hive.dju.ac.kr/~drkdhong/html5/userLogin..jsp"  method="post">
-      <fieldset><legend>로그인</legend>
-        <label for="stud_user">아이디</label>
-        <input id="id_form" type="text" name="stud_user" size="20" maxlength="50"/><br/><br/>
-        <label for="stud_passwd">암호명 </label>        
-        <input id="id_form" type="password" name="stud_passwd" size="20" maxlength="50"/><br/><br/>
-        <input type="submit" value="로그인"> 
-      </fieldset> 
-    </form>
-  </section>
-  <footer>
-    <p>&copy; 20XX Made by Korea.  All rights reserved.</p>  </footer> 
-</body></html>
+<header>
+ <h2>실습을 환영합니다</h2>
+</header>
+<nav>
+<ul>
+ <li id="login">로그인</li>
+</ul></nav>
+<section id="displayArea"></section>
+<section id="loginArea">
+ <fieldset class="fset"><legend>로그인</legend>
+ <form id="loginForm" action="http://hive.dju.ac.kr/~drkdhong/jq/loginCheck.jsp" method="post">
+ <ul class="level_1">
+ <li>
+   <ul class="level_2">
+   <li><span>아이디</span><input type="text" name="user_id"></li>
+   <li><span>비밀번호</span><input type="password" name="user_passwd"></li></ul>
+ <li id="loginBtn"><button>로그인</button></li>
+ </ul>
+</form></fieldset>
+</section>
+<footer>
+<p>&copy;20XX Made by Korea. All rights reserved.</p></footer></body></html>
+
