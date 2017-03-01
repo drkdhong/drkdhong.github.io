@@ -1,0 +1,24 @@
+<!DOCTYPE html>   <!--    jqLoad1.html   --> 
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>jQuery Ajax Load 테스트 페이지</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#button1").click(function(){
+      $("#displayArea").load("a.txt",function(resText,textStatus,xHR) {
+      if(textStatus=="success") alert("성공");
+      if(textStatus=="error") alert("실패"+xHR.status+":이유:"+xHR.textStatus);
+      });     });
+    $("#button2").click(function(){
+        $("#displayArea").load("b.txt",function(resText,textStatus,xHR) {
+        if(textStatus=="success") alert("성공");
+        if(textStatus=="error") alert("실패"+xHR.status+":이유:"+xHR.textStatus);
+        });       });   });
+</script></head><body>  <p id="korea">대한민국 서울</p>
+  <p id="usa">미국 워싱턴</p>
+  <button id="button1">한국</button>
+  <button id="button2">미국</button>
+  <br/><br/>
+  <div id="displayArea">수도 이름 </div>
+  </body></html>
