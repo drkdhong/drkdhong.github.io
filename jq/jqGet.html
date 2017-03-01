@@ -1,0 +1,16 @@
+<!DOCTYPE html><!--   jqGet.html --> 
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>jQuery get 테스트 페이지</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $.get("http://hive.dju.ac.kr/~drkdhong/jq/loginCheck.jsp", 
+      {user_id:"admin",user_passwd:"admin"},
+              function(result,status) {
+                 if(status=="success")  $("#displayArea").html(result);
+      });       
+  });
+</script></head><body id="bodyContent">
+<div id="displayArea"></div>
+</body></html>
