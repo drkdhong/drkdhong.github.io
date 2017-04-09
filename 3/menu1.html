@@ -1,0 +1,20 @@
+<!doctype  html>  <!--   menu1.html  -->
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//rawgit.com/tuupola/jquery_chained/master/jquery.chained.min.js"></script>
+<title>음식 분류</title></head>
+<body><section><form  action="http://hive.dju.ac.kr/~drkdhong/semantic/menu1.jsp" method="post">
+  <fieldset><legend>메뉴 입력</legend><label for="menux">종류</label>
+  <select id="menux" name="menu"><option value="1">면류</option><option value="2">탕류</option>
+  <option  value="3" selected>찌게류</option></select>
+  <label for="mealx">음식</label><select id="mealx" name="meal">
+  <option class="1" value="라면">라면</option><option class="1" value="쫄면">쫄면</option>
+  <option class="2" value="설렁탕">설렁탕</option><option class="2" value="갈비탕">갈비탕</option>
+  <option class="3" value="김치찌게">김치찌게</option><option class="3" value="섞어찌게">섞어찌게</option>
+</select>
+  </fieldset>
+  <button type="submit">입력</button>
+  <input  type="reset"  name="reset1" value="취소"/>
+</form>
+</section>
+</body></html>
