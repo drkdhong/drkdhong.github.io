@@ -5,13 +5,15 @@
 <title>음식 분류</title></head>
 <body><section><form  action="http://hive.dju.ac.kr/~drkdhong/semantic/menu1.jsp" method="post">
   <fieldset><legend>메뉴 입력</legend><label for="menux">종류</label>
-  <select id="menux" name="menu"><option value="1">면류</option><option value="2">탕류</option>
-  <option  value="3" selected>찌게류</option></select>
+  <select id="menux" name="menu"><option value="면류">면류</option>
+  <option value="탕류">탕류</option><option  value="찌게류" selected>찌게류</option></select>
   <label for="mealx">음식</label><select id="mealx" name="meal">
-  <option class="1" value="라면">라면</option><option class="1" value="쫄면">쫄면</option>
-  <option class="2" value="설렁탕">설렁탕</option><option class="2" value="갈비탕">갈비탕</option>
-  <option class="3" value="김치찌게">김치찌게</option><option class="3" value="섞어찌게">섞어찌게</option>
-</select>
+  <option class="면류" value="라면">라면</option><option class="면류" value="쫄면">쫄면</option>
+  <option class="탕류" value="설렁탕">설렁탕</option><option class="탕류" value="갈비탕">갈비탕</option>
+  <option class="찌게류" value="김치찌게">김치찌게</option>
+  <option class="찌게류" value="섞어찌게">섞어찌게</option>
+  </select>
+  <script>$("#mealx").chained("#menux");</script>
   </fieldset>
   <button type="submit">입력</button>
   <input  type="reset"  name="reset1" value="취소"/>
