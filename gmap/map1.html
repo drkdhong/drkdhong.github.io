@@ -1,34 +1,34 @@
 <!doctype html> <!-- map1.html -->
 <html lang="ko">
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Multiple Markers</title>
-<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Multiple Markers</title>
+  <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 </head>
 <body>
-<div id="map" style="width: 1000px; height: 800px;"></div>
+hello !!
+<div id="map" style="width:1000px; height:800px;"></div>
 <script>
 var locations = [
-['삼익사이버 아파트', 37.0211403, 127.0971617, 28],
-['국립축산과학원 축산자원개발부', 36.93309333, 127.10487485, 10]
+  ['삼익사이버 아파트', 37.0211403, 127.0971617, 28],
+  ['국립축산과학원 축산자원개발부', 36.93309333, 127.10487485, 10]
 ];
 var map = new google.maps.Map(document.getElementById('map'), {
-zoom: 8,
-center: new google.maps.LatLng(37,127.1),
-mapTypeId: google.maps.MapTypeId.ROADMAP
+  zoom: 8,
+  center: new google.maps.LatLng(37,127.1),
+  mapTypeId: google.maps.MapTypeId.ROADMAP
 });
-var infow indow = new google.maps.InfoWindow();
+var infowindow = new google.maps.InfoWindow();
 var marker, i;
 for (i = 0; i < locations.length; i++) {
-marker = new google.maps.Marker({
-position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-map: map
-});
-google.maps.event.addListener(marker, 'click', (function(marker,i) {
-return function() {
-infowindow.setContent(locations[i][0]);
-infowindow.open(map, marker);
-}
-})(marker, i));
+  marker = new google.maps.Marker({
+    position: new google.maps.LatLng(locations[i][1], locations[i][2]),map: map});
+  google.maps.event.addListener(marker, 'click', (function(marker,i) {
+    return function() {
+      infowindow.setContent(locations[i][0]);
+      infowindow.open(map, marker);
+    }
+  })(marker,i));
 }
 </script>
 </body>
