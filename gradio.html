@@ -1,0 +1,34 @@
+<DOCTYPE html><!-- gradio.html -->
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>헤더 문자열 1</title><link rel="stylesheet" href="../jQueryMobile/jquery.mobile-1.4.5.min.css">
+<script src="../jQuery/jquery.min.js"></script><script src="../jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
+<style>
+@media only screen and (max-width: 600px) {  
+     body {font-size: 10px;} 
+</style>
+</head><body>
+<div data-role="page">
+  <header data-role="header">
+    <h1>form 실습</h1></header>
+  <section  data-role="content" class="content">
+    <form action="form_radio.jsp"  method="post">
+    <fieldset  data-role="controlgroup" data-type="horizontal">
+      <legend>선호도선택</legend>
+      <label for="scorex1">매우동의</label>
+      <input type="radio" id="scorex1" name="scorex" value="1">
+      <label for="scorex2">동의</label>
+      <input type="radio" id="scorex2" name="scorex" value="2">
+      <label for="scorex3">보통</label>
+      <input type="radio" id="scorex3" name="scorex" value="3">
+      <label for="scorex4">비동의</label>
+      <input type="radio" id="scorex4" name="scorex" value="4">
+      <label for="scorex5">전혀비동의</label>
+      <input type="radio" id="scorex5" name="scorex" value="5">
+    </fieldset>
+      <button type="submit"  data-role="button">등록</button></form>
+  </section>
+  <footer  data-role="footer" data-id="footerid1" data-position="fixed">
+    <h4>20XX Made by Korea. All rights reserved.</h4>
+  </footer>
+</div>
+</body></html>
