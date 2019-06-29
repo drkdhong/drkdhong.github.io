@@ -1,0 +1,24 @@
+<!DOCTYPE html><!-- form_radio.html -->
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>헤더 문자열 1</title><link rel="stylesheet" href="../jQueryMobile/jquery.mobile-1.4.5.min.css">
+<script src="../jQuery/jquery.min.js"></script><script src="../jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
+</head><body>
+<div data-role="page">
+  <header data-role="header">
+    <h1>form 실습</h1></header>
+  <section  data-role="content" class="content">
+    <form action="form_radio.jsp"  method="post">
+    <fieldset  data-role="control-group" data-type="horizontal">
+      <legend>성별 선택</legend>
+      <label for="malex">남자</label>
+      <input type="radio" id="malex" name="gender" value="male">
+      <label for="femalex">여자</label>
+      <input type="radio" id="femalex" name="gender" value="female">
+      <button type="submit"  data-role="button">등록</button>
+    </fieldset></form>
+  </section>
+  <footer  data-role="footer" data-id="footerid1" data-position="fixed">
+    <h4>20XX Made by Korea. All rights reserved.</h4>
+  </footer>
+</div>
+</body></html>
